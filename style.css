@@ -1,3 +1,13 @@
+:root {
+  --cor-fundo: blanchedalmond;
+  --cor-texto-principal: brown;
+  --cor-texto-corpo: black;
+  --cor-header: darksalmon;
+  
+  /* Velocidade da animação */
+  --transicao: 0.5s;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +15,8 @@
 }
 
 body{
-    background-color: blanchedalmond;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-corpo);
 }
 
 .header{
@@ -13,7 +24,7 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: darksalmon;
+    background-color: var(--cor-header);
     padding:20px;
     font-size: larger;
     color:aliceblue;
@@ -74,12 +85,12 @@ img:hover {
 }
 
 h4{
-    color:black;
+    color: var(--cor-texto-corpo);
     font-size: medium;
 }
 
 .p1{
-    color: black;
+    color: var(--cor-texto-corpo);
     text-align: center;
 }
 
@@ -167,8 +178,56 @@ footer{
     }
 }
 
+/* MODO ESCURO */
 
+body:has(#botao-dark:checked) {
+  --cor-fundo: #121212;         
+  --cor-texto-principal: #ffb4a2; 
+  --cor-texto-corpo: #ffffff;    
+  --cor-header: #2d2d2d;        
+}
 
+/* BOTÃO MODO ESCURO */
+
+.switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 34px;
+}
+
+/* O fundo do botão */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+/* A bolinha branca que desliza */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px; width: 26px;
+  left: 4px; bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+/* Quando marcado, o fundo fica verde (ou a cor que preferir) */
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+/* Quando marcado, a bolinha desliza para a direita */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
 
 
 
